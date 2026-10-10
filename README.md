@@ -25,7 +25,7 @@ You can run this fully featured UI locally in just a few seconds.
 
 #### 1. Clone the repository
 ```bash
-git clone https://github.com/YOUR_USERNAME/public-apis-ui.git
+git clone https://github.com/Aditya-kumar-yadav/public-apis-ui.git
 cd public-apis-ui
 ```
 
