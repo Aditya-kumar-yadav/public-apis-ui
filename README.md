@@ -5,7 +5,9 @@ Welcome to **Public APIs UI Explorer** (`public-apis-ui`) — a beautifully desi
 This project transforms the massive markdown table of APIs into a highly interactive, searchable, and testable catalog.
 
 <p align="center">
-  <img src="assets/demo-screenshot.png" alt="Public APIs UI Explorer Demo" width="100%" />
+  <img src="assets/demo-screenshot.png" alt="Public APIs UI Explorer Demo" width="100%" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
+  <br><br>
+  <img src="assets/demo-tester.png" alt="In-Browser API Tester" width="100%" style="border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);" />
 </p>
 
 ### ✨ Features
