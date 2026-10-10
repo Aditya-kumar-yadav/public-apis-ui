@@ -4,6 +4,10 @@ Welcome to **Public APIs UI Explorer** (`public-apis-ui`) — a beautifully desi
 
 This project transforms the massive markdown table of APIs into a highly interactive, searchable, and testable catalog.
 
+<p align="center">
+  <img src="assets/demo-screenshot.png" alt="Public APIs UI Explorer Demo" width="100%" />
+</p>
+
 ### ✨ Features
 - **Live Search & Filter**: Instantly search across 1400+ public APIs by keyword.
 - **LeetCode-Style Quick Filters**: Effortlessly mix and match multiple categories (e.g., *Animals* + *Anime*) using an expandable, multi-select tag grid.
