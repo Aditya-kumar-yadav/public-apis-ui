@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public APIs | Explorer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=17">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-content">
+            <a href="/" class="brand" style="text-decoration: none; color: inherit;">
+                <span class="brand-dot"></span>
+                public-apis-ui
+            </a>
+            <div class="filter-group">
+                <div class="search-wrapper">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="searchInput" placeholder="Search APIs, or describe your project idea...">
+                </div>
+                <select id="categoryFilter" class="modern-select">
+                    <option value="All">All Categories</option>
+                </select>
+                <select id="corsFilter" class="modern-select" title="Cross-Origin Resource Sharing">
+                    <option value="All">CORS: All</option>
+                    <option value="Yes">CORS: Yes</option>
+                    <option value="No">CORS: No</option>
+                    <option value="Unknown">CORS: Unknown</option>
+                </select>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <div class="page-header">
+            <h1 class="fade-in-up">The Definitive API Directory. <span class="api-ping-anim"><span class="ping-dot"></span><span class="ping-wave"></span></span></h1>
+            <p class="subtitle fade-in-up delay-1">Accelerate development with a curated collection of production-ready, free public APIs.</p>
+        </div>
+
+        <div class="quick-filters-wrapper fade-in-up delay-2">
+            <div class="quick-filters" id="quickFilters">
+                <!-- Pills populated via JS -->
+            </div>
+            <button id="expandFiltersBtn" class="expand-btn" title="Expand Categories">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+            </button>
+        </div>
+
+        <div class="results-meta fade-in-up delay-2">
+            <span id="apiCount">Loading APIs...</span>
+            <div class="view-toggle">
+                <button id="gridViewBtn" class="view-btn active" title="Grid View">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                </button>
+                <button id="listViewBtn" class="view-btn" title="List View">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+
+        <div id="apiContainer" class="api-grid fade-in-up delay-3">
+            <div class="skeleton-card"><div class="skeleton-header"></div><div class="skeleton-body"></div><div class="skeleton-body short"></div><div class="skeleton-footer"><div class="skeleton-btn"></div><div class="skeleton-btn"></div></div></div>
+            <div class="skeleton-card"><div class="skeleton-header"></div><div class="skeleton-body"></div><div class="skeleton-body short"></div><div class="skeleton-footer"><div class="skeleton-btn"></div><div class="skeleton-btn"></div></div></div>
+            <div class="skeleton-card"><div class="skeleton-header"></div><div class="skeleton-body"></div><div class="skeleton-body short"></div><div class="skeleton-footer"><div class="skeleton-btn"></div><div class="skeleton-btn"></div></div></div>
+            <div class="skeleton-card"><div class="skeleton-header"></div><div class="skeleton-body"></div><div class="skeleton-body short"></div><div class="skeleton-footer"><div class="skeleton-btn"></div><div class="skeleton-btn"></div></div></div>
+            <div class="skeleton-card"><div class="skeleton-header"></div><div class="skeleton-body"></div><div class="skeleton-body short"></div><div class="skeleton-footer"><div class="skeleton-btn"></div><div class="skeleton-btn"></div></div></div>
+            <div class="skeleton-card"><div class="skeleton-header"></div><div class="skeleton-body"></div><div class="skeleton-body short"></div><div class="skeleton-footer"><div class="skeleton-btn"></div><div class="skeleton-btn"></div></div></div>
+        </div>
+    </main>
+
+    <!-- Modal for testing API -->
+    <div id="testModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+            </button>
+            <div class="modal-header">
+                <span class="badge">API TESTER</span>
+                <h2 id="modalApiName">API Name</h2>
+                <a href="#" id="modalApiUrl" target="_blank" class="modal-url">url</a>
+            </div>
+            
+            <div class="test-section">
+                <div class="input-group">
+                    <label for="testEndpoint">Endpoint Pathway</label>
+                    <div class="endpoint-input-wrapper">
+                        <span class="method-badge">GET</span>
+                        <input type="text" id="testEndpoint" placeholder="/v1/example" value="">
+                    </div>
+                </div>
+                <button id="runTestBtn" class="black-btn">Execute Request</button>
+            </div>
+            
+            <div class="response-section">
+                <div class="response-header">
+                    <h3>Response Output</h3>
+                    <div class="status-indicator" id="statusIndicator">Ready</div>
+                </div>
+                <div class="response-body">
+                    <div class="loader" id="testLoader" style="display: none;"></div>
+                    <pre id="testResponse">Awaiting execution...</pre>
+                </div>
+            </div>
+        </div>
+        <div class="modal-backdrop"></div>
+    </div>
+
+    <button id="scrollToTopBtn" class="scroll-top-btn" title="Go to top">
+        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+    </button>
+
+    <script src="app.js?v=17"></script>
+</body>
+</html>
